@@ -1,7 +1,10 @@
 const vm = new Vue({
     el: '#app',
     data: {
-        inputTypeBread: null
+        inputTypeBread: null,
+        inputTypeLettuce: [],
+        inputTypeSauce: [],
+        inputTypeHamburguer: null,
     },
     computed: {
         bread() {
@@ -18,19 +21,48 @@ const vm = new Vue({
             }
         },
         lettuce() {
+            if (this.inputTypeLettuce.includes('alface')) {
+                return './imagens/alface.png'
+            }
+
             return './imagens/padrao/alface.png'
         },
         ketchup() {
+            if (this.inputTypeSauce.includes('ketchup')) {
+                return './imagens/ketchup.png'
+            }
+
             return './imagens/padrao/molho.png'
         },
         mayonnaise() {
+            if (this.inputTypeSauce.includes('maionese')) {
+                return './imagens/maionese.png'
+            }
+
             return './imagens/padrao/molho.png'
         },
         mustard() {
+            if (this.inputTypeSauce.includes('mostarda')) {
+                return './imagens/mostarda.png'
+            }
+
             return './imagens/padrao/molho.png'
         },
         hamburguer() {
-            return './imagens/padrao/hamburguer.png'
+            switch(this.inputTypeHamburguer) {
+                case 'bovino':
+                    return './imagens/bovino.png'
+                    break
+                case 'frango':  
+                    return './imagens/frango.png'
+                    break
+                case 'soja':
+                    return './imagens/soja.png'
+                    break
+                default: {
+                    return './imagens/padrao/hamburguer.png'
+                }
+            }
         }
     }
 })
