@@ -31,7 +31,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" v-if="stage == 1">
                     <!-- Tipo do pão -->
                     <div class="row mt-2">
                         <div class="col">
@@ -117,6 +117,33 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col d-flex justify-content-center">
+                            <button type="button" class="btn btn-primary" v-on:click="finalizeOrder()">Finalizar pedido</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" v-if="stage == 2">
+                    <div class="row mt-2">
+                        <div class="col">
+                            <div class="card-header">Informe seus dados</div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label class="form-label">Nome</label>
+                                    <input class="form-control" type="text" v-model="inputName">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Endereço</label>
+                                    <input class="form-control" type="text" v-model="inputAddress">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col d-flex justify-content-between">
+                            <button type="button" class="btn btn-warning" v-on:click="stage -= 1">Voltar para o lanche</button>
                         </div>
                     </div>
                 </div>

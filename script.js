@@ -5,6 +5,9 @@ const vm = new Vue({
         inputTypeLettuce: [],
         inputTypeSauce: [],
         inputTypeHamburguer: null,
+        stage: 1,
+        inputName: null,
+        inputAddress: null
     },
     computed: {
         bread() {
@@ -62,6 +65,15 @@ const vm = new Vue({
                 default: {
                     return './imagens/padrao/hamburguer.png'
                 }
+            }
+        }
+    },
+    methods: {
+        finalizeOrder() {
+            if (this.inputTypeBread && this.inputTypeHamburguer) {
+                this.stage = 2
+            } else {
+                alert("Você precisa selecionar no mínimo o pão e o hambúrguer.")
             }
         }
     }
