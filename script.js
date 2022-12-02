@@ -69,12 +69,28 @@ const vm = new Vue({
         }
     },
     methods: {
-        finalizeOrder() {
+        makeOrder() {
             if (this.inputTypeBread && this.inputTypeHamburguer) {
                 this.stage = 2
             } else {
                 alert("Você precisa selecionar no mínimo o pão e o hambúrguer.")
             }
+        },
+        confirmOrder() {
+            if (this.inputName && this.inputAddress) {
+                this.stage = 3
+            } else {
+                alert("Informe seu nome e endereço.")
+            }
+        },
+        newOrder() {
+            this.inputTypeBread = null
+            this.inputTypeLettuce = []
+            this.inputTypeSauce = []
+            this.inputTypeHamburguer = null
+            this.stage = 1
+            this.inputName = null
+            this.inputAddress = null
         }
     }
 })

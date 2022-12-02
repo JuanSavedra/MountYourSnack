@@ -121,7 +121,7 @@
                     </div>
                     <div class="row mt-2">
                         <div class="col d-flex justify-content-center">
-                            <button type="button" class="btn btn-primary" v-on:click="finalizeOrder()">Finalizar pedido</button>
+                            <button type="button" class="btn btn-primary" v-on:click="makeOrder()">Finalizar pedido</button>
                         </div>
                     </div>
                 </div>
@@ -144,6 +144,24 @@
                     <div class="row mt-2">
                         <div class="col d-flex justify-content-between">
                             <button type="button" class="btn btn-warning" v-on:click="stage -= 1">Voltar para o lanche</button>
+                            <button type="button" class="btn btn-success" v-on:click="confirmOrder()">Confirmar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" v-if="stage == 3">
+                    <div class="row mt-2">
+                        <div class="col">
+                            <div class="card-header">Pedido confirmado!</div>
+                            <div class="card-body">
+                                <p>Agora é só aguardar...</p>
+                                <p>Iremos chamá-lo em breve ;)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col d-flex justify-content-between">
+                            <button type="button" class="btn btn-warning" v-on:click="stage = 1">Repetir pedido</button>
+                            <button type="button" class="btn btn-success" v-on:click="newOrder()">Novo pedido</button>
                         </div>
                     </div>
                 </div>
